@@ -1,0 +1,17 @@
+apiVersion: "serving.kserve.io/v1beta1"
+kind: "InferenceService"
+metadata:
+  name: "{{values.serviceName}}"
+spec:
+  predictor:
+    model:
+      modelFormat:
+        name: mlflow-custom
+      protocolVersion: v2
+      modelVersion: sKRiaj/2
+      resources: limits:
+  cpu: 500m
+  memory: 2Gi
+  requests:
+    cpu: 100m
+    memory: 1Gi
